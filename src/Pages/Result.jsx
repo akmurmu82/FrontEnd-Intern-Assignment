@@ -23,7 +23,7 @@ function Result({ openModal }) {
   const { participantsArr } = useContext(ParticipantsContext);
   return (
     <>
-      <Button display="none" ref={openModal} onClick={onOpen}>
+      <Button display="none" color='#fff' ref={openModal} onClick={onOpen}>
         Open Modal
       </Button>
 
@@ -70,10 +70,10 @@ function Result({ openModal }) {
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button borderRadius="1px" bg="#000" m="10px" mr={3}>
+            <Button color='#fff' borderRadius="1px" bg="#000" m="10px" mr={3}>
               <Link to="/">Back to Home</Link>
             </Button>
-            <Button borderRadius="1px" bg="#000" m="10px" onClick={onClose}>
+            <Button color='#fff' borderRadius="1px" bg="#000" m="10px" onClick={onClose}>
               Restart Race
             </Button>
           </ModalFooter>

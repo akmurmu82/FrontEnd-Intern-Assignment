@@ -23,7 +23,7 @@ function RacePage() {
   function updateWinnerCount() {
     // const endTime = new Date();
     console.log(winnerCount);
-    if (winnerCount === 3) {
+    if (winnerCount === 2) {
       console.log("winnerCount", winnerCount);
       openModal.current.click();
       setStopTimer(true);

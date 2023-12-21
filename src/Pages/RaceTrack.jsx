@@ -22,9 +22,14 @@ function RacePage() {
   let winnerCount = 0;
   function updateWinnerCount() {
     // const endTime = new Date();
-    console.log(winnerCount);
-    if (winnerCount === 2) {
-      console.log("winnerCount", winnerCount);
+    console.log(winnerCount, participantsArrLength);
+    if (
+      participantsArrLength < 3 &&
+      winnerCount === participantsArrLength - 1
+    ) {
+      openModal.current.click();
+    } else if (winnerCount === 2) {
+      // console.log("winnerCount", winnerCount);
       openModal.current.click();
       setStopTimer(true);
     } else {

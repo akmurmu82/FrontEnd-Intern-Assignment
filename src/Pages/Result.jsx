@@ -16,14 +16,16 @@ import {
   Td,
 } from "@chakra-ui/react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ParticipantsContext } from "../Context/Context";
+
 function Result({ openModal }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { participantsArr } = useContext(ParticipantsContext);
+  const navigate = useNavigate();
   return (
     <>
-      <Button display="none" color='#fff' ref={openModal} onClick={onOpen}>
+      <Button display="none" color="#fff" ref={openModal} onClick={onOpen}>
         Open Modal
       </Button>
 
@@ -39,7 +41,7 @@ function Result({ openModal }) {
                   textAlign="left"
                   fontSize={{ base: "18px", sm: "20px" }}
                 >
-                  LIST OF PARTICIPANTS
+                  SCORE CARD
                 </TableCaption>
                 <Thead>
                   <Tr>
@@ -70,11 +72,17 @@ function Result({ openModal }) {
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button color='#fff' borderRadius="1px" bg="#000" m="10px" mr={3}>
+            <Button color="#fff" borderRadius="1px" bg="#000" m="10px" mr={3}>
               <Link to="/">Back to Home</Link>
             </Button>
-            <Button color='#fff' borderRadius="1px" bg="#000" m="10px" onClick={onClose}>
-              Restart Race
+            <Button
+              color="#fff"
+              borderRadius="1px"
+              bg="#000"
+              m="10px"
+              onClick={onClose}
+            >
+              Close
             </Button>
           </ModalFooter>
         </ModalContent>

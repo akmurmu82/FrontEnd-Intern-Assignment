@@ -17,7 +17,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ParticipantsContext } from "../Context/Context";
 
@@ -161,7 +161,13 @@ function RunnerDatail({ participantsArr, setParticipantsArr, winnersArr }) {
       <FormErrorMessage fontSize="16px">
         You cannot add more than 10 participants. Please start the race.
       </FormErrorMessage>
-      <Button mt={4} onClick={handleSubmit} color='#fff' borderRadius="2px" bg="#000">
+      <Button
+        mt={4}
+        onClick={handleSubmit}
+        color="#fff"
+        borderRadius="2px"
+        bg="#000"
+      >
         + ADD RUNNER
       </Button>
     </FormControl>
@@ -169,6 +175,7 @@ function RunnerDatail({ participantsArr, setParticipantsArr, winnersArr }) {
 }
 
 function ListOfParticipants({ participantsArr }) {
+  const { startBtn } = useContext(ParticipantsContext);
   return (
     <Box
       border="1px solid"
@@ -209,8 +216,10 @@ function ListOfParticipants({ participantsArr }) {
         </Table>
       </TableContainer>
       <Flex justifyContent="flex-end">
-        <Button borderRadius="1px" color='#fff' bg="#000" m="10px">
-          <Link to="/racepage">Start</Link>
+        <Button borderRadius="1px" color="#fff" bg="#000" m="10px">
+          <Link ref={startBtn} to="/racepage">
+            Start
+          </Link>
         </Button>
       </Flex>
     </Box>
